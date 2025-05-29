@@ -1,0 +1,955 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "poppins" , sans-serif;
+    user-select: none;
+}
+body {
+    position: relative;
+}
+header{
+    width: 100%;
+    height: 60px;
+    padding: 40px 240px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(216, 214, 214);
+}
+header div {
+    display: flex;
+    
+}
+header .logo {
+    width: 100px;
+    height: 50px;
+    margin-right: 15px;
+}
+header ul {
+    display: flex;
+    align-items: center;
+}
+header ul li {
+    margin-right: 2px;
+    padding: 10px 18px;
+    list-style: none;
+}
+header ul li:hover {
+    background-color: rgb(245, 243, 243);
+    border-radius: 2px;
+}
+header ul li a {
+    text-decoration: none;
+    color: rgb(102, 102, 102);
+    font-weight: 600;
+    font-size: 17px;
+}
+.menu {
+    position: relative;
+}
+header ul li ul {
+    width: 200px;
+    background-color: white;
+    box-shadow: 0 0 5px rgb(206, 204, 204);
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0; 
+    text-align: center;
+    display: none;
+    z-index: 999;
+}
+header ul li ul li {
+    width: 100%;
+}
+header ul li:hover > ul {
+    display: block;
+}
+header ul li ul::before {
+    content: "";
+    border-bottom: 8px solid white;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid transparent;
+    position: absolute;
+    top: -16px;
+    left: 20px;
+}
+header ul li ul li:first-child:hover::before {
+    content: "";
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid transparent;
+    position: absolute;
+    top: -16px;
+    left: 20px;
+    border-bottom: 8px solid rgb(245, 243, 243);
+}
+header ul li ul li a {
+    font-weight: 500;
+    font-size: 18px;
+}
+.right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 14%;
+}
+.right a {
+    text-decoration: none;
+}
+.right a i {
+    font-size: 20px;
+    font-weight: 500;
+    color: rgb(102, 102, 102);
+}
+.right img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50px;
+    cursor: pointer;
+    object-fit: cover;
+    
+} 
+.right .user {
+    position: relative;
+}
+.right .user::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    background-color: rgb(23, 230, 23);
+    border: 2px solid white;
+    position: absolute;
+    border-radius: 50px;
+    bottom: 0px;
+    right: 0px;
+}
+.right a:nth-child(1)::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50px;
+    background-color: rgb(252, 111, 111);
+    position: absolute;
+    top: 8px;
+    right: 10px;
+}
+.right a {
+    position: relative;
+    padding: 12px;
+    border-radius: 5px;
+}
+
+.menu::before {
+    content: "";
+    border-top: 5px solid rgb(102, 102, 102);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    position: absolute;
+    right: 3px;
+    top: 50%;
+    transition: 0.4s ease;
+}
+.menu:hover::before {
+    transform: rotate(180deg);
+    top: calc( 50% - 5px);
+}
+.right a div {
+    background-color: rgb(51, 50, 50);
+    height: 50px;
+    width: 110px;
+    line-height: 50px;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 44px;
+    right: 50%;
+    transform: translateX(50%);
+    display: none;
+    z-index: 999;
+}
+.right a:nth-child(3) div {
+    width: 150px;
+}
+.right a div::before {
+    content: "";
+    border-bottom: 8px solid rgb(51, 50, 50);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid transparent;
+    position: absolute;
+    right: 50%;
+    top: -16px;
+    transform: translateX(50%);
+}
+.right a:hover > div {
+    display: block;
+}
+.right a:hover {
+    background-color: rgb(245, 243, 243);
+}
+
+
+                                     /*--------------------------
+                                     ---------End Header---------
+                                     ----------------------------*/
+
+
+.dashboard {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    /*height: calc(100vh + 230px);*/
+    padding: 20px 260px 0 260px;   
+    background-color: rgb(241, 240, 240);
+}
+.dashboard aside {
+    /*height: 80%;*/
+    width: 24%;
+    display: flex;
+    flex-direction: column;
+}
+.info {
+    width: 100%;
+    /*height: 52%;*/
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 2px 3px rgb(238, 237, 237);
+    background-color: white;
+}
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgb(228, 225, 225);
+}
+.profile .user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.profile .user-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    margin-right: 20px;
+    object-fit: cover;
+}
+.profile .user-info p {
+    font-size: 18px;
+    font-weight: 700;
+    color: rgb(102, 102, 102);
+}
+.profile p {
+    font-size: 17px;
+    font-weight: 500;
+    color: rgb(102, 102, 102);
+}
+.rate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+.rate .rate-info {
+    background-color: rgb(51, 50, 50);
+    position: absolute;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    top: -65px;
+    height: 75px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    
+}
+.rate .rate-info::before {
+    content: "";
+    border-top: 8px solid rgb(51, 50, 50);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    position: absolute;
+    right: 50%;
+    bottom: -16px;
+    transform: translateX(50%);
+}
+.rate:hover > .rate-info {
+    display: block;
+}
+.rate div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.rate div p {
+    margin-left: 10px;
+    font-size: 17px;
+    font-weight: 500;
+    color: rgb(102, 102, 102);
+}
+.rate div span {
+    width: 58px;
+    height: 8px;
+    background-color: rgb(8, 189, 8);
+    border-radius: 50px;
+}
+.info div:nth-child(6) {
+    border-bottom: 1px solid rgb(228, 225, 225);
+    padding-bottom: 25px;
+}
+.inbox {
+    padding: 25px 20px;
+    box-shadow: 1px 2px 3px rgb(238, 237, 237);
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.inbox a {
+    text-decoration: none;
+    color: #446ee7;
+    font-weight: 500;
+    font-size: 17px;
+}
+.social {
+    padding: 20px;
+    box-shadow: 1px 2px 3px rgb(238, 237, 237);
+    background-color: white;
+    display: flex;
+    align-items: start;
+    width: 22%;
+    flex-direction: column;
+    margin-top: 25px;
+    gap: 20px;
+    width: 100%;
+}
+.social p {
+    font-size: 17px;
+    font-weight: 600;
+    color: rgb(102, 102, 102);
+}
+.social p span {
+    background-color: rgb(102, 102, 102);
+    border-radius: 100%;
+    color: white;
+    padding: 0 4px;
+    margin-left: 5px;
+}
+.social .icons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+.social .icons .fa-brands {
+    font-size: 35px;
+    color: #446ee7;
+    opacity: 0.4;
+    position: relative;
+    cursor: pointer;
+}
+.social .icons div {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.social .icons div div {
+    background-color: #446ee7;
+    color: white;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: 2px solid white;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 50px;
+    position: absolute;
+    bottom: -3px;
+    right: -3px;
+}
+.social .icons div .icon-info {
+    background-color: rgb(51, 50, 50);
+    color: white;
+    border-radius: 5px;
+    position: absolute;
+    top: -60px;
+    right: 50%;
+    transform: translateX(50%);
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 45px;
+    width: 80px;
+    height: 45px;
+    display: none;
+    
+}
+.social .icons div:nth-child(3) .icon-info {
+    width: 130px;
+}
+.social .icons div .icon-info::before {
+    content: "";
+    border-top: 8px solid rgb(51, 50, 50);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    position: absolute;
+    right: 50%;
+    bottom: -16px;
+    transform: translateX(50%);
+}
+.social .icons div:hover > .icon-info{
+    display: block;
+}
+main {
+    height: 100%;
+    width: 68%;
+    display: flex;
+    flex-direction: column;
+}
+main .welcome p {
+    font-size: 17px;
+    margin-top: 5px;
+    font-weight: 500;
+    color: rgb(102, 102, 102);
+}
+main .setup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0px 0px 1px rgb(151, 151, 151);
+    padding: 25px 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+main .setup div:first-child {
+    cursor: pointer;
+    width: 90%;
+}
+main .setup p {
+    color: rgb(102, 102, 102);
+    font-size: 17px;
+    margin-top: 10px;
+    font-weight: 500;
+}
+main .setup .icon .fa-solid {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    color: rgb(102, 102, 102);
+}
+main .setup .icon .fa-solid:hover{
+    background-color:  rgb(245, 243, 243);
+    border-radius: 50%;
+    cursor: pointer;
+}
+main .orders {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0px 0px 1px rgb(151, 151, 151);
+    padding: 15px 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+main .orders h3 {
+    font-size: 19px;
+    font-weight: 600;
+}
+main .orders h3 span {
+    color: rgb(158, 157, 157);
+}
+main .orders div {
+    border: .5px solid rgb(158, 157, 157);
+    height: 40px;
+    width: 180px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 18px;
+    color: rgb(102, 102, 102);
+    cursor: pointer;
+    position: relative;
+}
+main .orders div:hover {
+    background-color: rgb(245, 243, 243);
+}
+main .orders div:hover i {
+    transform: rotate(180deg);
+}
+main .orders div i {
+    font-size: 12px;
+    margin-left: 10px;
+    transform: translateY(12.5%);
+    transition: .4s ease;
+}
+main .orders div ul {
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 0 5px rgb(122, 122, 122);
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0; 
+    text-align: center;
+    display: none;
+    z-index: 999;
+}
+main .orders div ul li {
+    width: 100%;
+    list-style: none;
+    padding: 10px 18px;
+}
+main .orders div ul li a {
+    text-decoration: none;
+    color: rgb(102, 102, 102);
+    font-weight: 500;
+    font-size: 18px;
+}
+main .orders div ul li:hover {
+    background-color: rgb(245, 243, 243);
+}
+main .orders div ul::before {
+    content: "";
+    border-bottom: 8px solid white;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid transparent;
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translate(-50%);
+}
+main .orders div ul li:first-child:hover::before {
+    content: "";
+    border-bottom: 8px solid rgb(245, 243, 243);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid transparent;
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translate(-50%);
+}
+main .orders div:hover > ul {
+    display: block;
+}
+main .upgrade {
+    display: flex;
+    align-items: center;
+    margin-top: 35px;
+}
+main .upgrade h4 {
+    color: rgb(102, 102, 102);
+    margin-right: 10px;
+}
+main .upgrade span {
+    height: 2px;
+    flex-grow: 1;
+    background-color: rgb(204, 204, 204);
+}
+main .steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0px 0px 1px rgb(151, 151, 151);
+    padding: 20px 20px 30px;
+    margin-top: 10px;
+    border-radius: 5px;
+    gap: 30px;
+}
+main .steps h1 {
+    font-size: 25px;
+}
+main .steps p {
+    color: rgb(102, 102, 102);
+    font-size: 17px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+main .steps .cards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+main .steps .cards .card {
+    height: 300px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    padding: 20px;
+    box-shadow: 0 0 5px rgb(122, 122, 122);
+    border-radius: 5px;
+    transition: .5s ease;
+}
+main .steps .cards .card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px aqua;
+}
+main .steps .cards .card i {
+    font-size: 60px;
+    color: #446ee7;
+}
+main .steps .cards .card h3 {
+    color: rgb(102, 102, 102);
+}
+main .steps .cards .card p {
+    font-size: 13px;
+    font-weight: 500;
+}
+main .steps .cards .card p a {
+    text-decoration: none;
+    color: #446ee7;
+}
+main .steps .cards .card button {
+    padding: 8px 15px;
+    border: 2px solid #446ee7;
+    background-color: white;
+    color: #446ee7;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 18px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: .4s ease;
+}
+main .steps .cards .card button:hover::before {
+    /*top: 0;
+    left: 0;*/
+    transform: rotateZ(0deg);
+}
+main .steps .cards .card button:hover {
+    color: white;
+}
+main .steps .cards .card button::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #446ee7;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateZ(-140deg);
+    transform-origin: left;
+    z-index: -1;
+    transition: .4s ease; 
+}
+main .slider {
+    margin-top: 20px;
+}
+main .slider .slide-container {
+    width: 100%;
+    height: 300px;
+    position: relative;
+}
+main .slider .slide-container img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    transition: .5s ease;
+}
+main .slider .slide-container span {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    z-index: 1;
+    background-color: rgb(114, 113, 113);
+    color: white;
+    padding: 2px 10px;
+    border-radius: 2px;
+    box-shadow: 0 0 5px white;
+}
+main .slider .slide-control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+main .slider .slide-control .prev,
+main .slider .slide-control .next {
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background-color: #446ee7;
+    color: white;
+    margin: 10px 0;
+    border-radius: 2px;
+    cursor: pointer;
+}
+main .slider .slide-control .prev:hover,
+main .slider .slide-control .next:hover {
+    background-color: #5a7fec;
+}
+main .slider .slide-control .page ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+}
+main .slider .slide-control .page ul li {
+    list-style: none;
+    background-color: white;
+    padding: 5px;
+    box-shadow: 0 0 5px black;
+    border-radius: 2px;
+}
+main .slider .slide-container img.active {
+    opacity: 1;
+}
+main .slider .slide-control .prev.disabled,
+main .slider .slide-control .next.disabled {
+    background-color: #cad6fb;
+    cursor: no-drop;
+} 
+main .slider .slide-control .page ul li.active {
+    background-color: rgb(114, 113, 113);
+    box-shadow: 0 0 5px white;
+    color: white;
+}
+main .auto-slider {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    margin: 20px 0;
+    overflow: hidden;
+}
+main .auto-slider img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: .4s ease;
+}
+main .auto-slider div {
+    position: absolute;
+    width: 120px;
+    bottom: 20px;
+    left: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+main .auto-slider div span {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 5px black;
+    background-color: rgb(102, 102, 102);
+    cursor: pointer;
+}
+main .auto-slider div span.active {
+    background-color: white;
+    box-shadow: 0 0 8px white;
+}
+.wrapper-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    transform: scale(0);
+}
+.wrapper-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /*top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;*/
+    background-color: rgb(104, 103, 103);
+    opacity: .8;
+}
+.wrapper {
+    width: 400px;
+    height: 440px;
+    opacity: 1;
+    box-shadow: 0 0 8px black;
+    border-radius: 20px;
+    background-color: white;
+    /*backdrop-filter: blur(20px);*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transform: scale(0);
+    transition: .4s ease;
+}
+.wrapper-container.log-reg {
+    transform: scale(1);
+}
+.wrapper.log-reg {
+    transform: scale(1);
+}
+.wrapper.active {
+    height: 500px;
+}
+.wrapper .register {
+    transform: translate(400px);
+    display: none;
+    transition: .2s ease;
+}
+.wrapper.active .login {
+    transform: translate(-400px);
+    display: none;
+    transition: .2s ease;
+}
+.wrapper.active .register {
+    transform: translate(0);
+    display: block;
+}
+.wrapper i:first-child {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 40px;
+    width: 40px;
+    background-color: rgb(102, 102, 102);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+}
+.wrapper .form-inbox h1 {
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    color: #5a7fec;
+    user-select: none;
+}
+.wrapper .form-inbox {
+    width: 100%;
+    padding: 40px;
+}
+.wrapper .form-inbox .input-inbox {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    border-bottom: 2px solid rgb(114, 113, 113);
+    margin: 30px 0; 
+}
+.wrapper .form-inbox .input-inbox:last-child {
+    margin-bottom: 20px;
+}
+.wrapper .form-inbox .input-inbox label {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    pointer-events: none;
+    transition: .5s ease;
+}
+.wrapper .form-inbox .input-inbox input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 0 35px 0 5px ;
+    font-size: 17px;
+}
+.wrapper .form-inbox .input-inbox i {
+    position: absolute;
+    color: rgb(114, 113, 113);
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+}
+.wrapper .form-inbox .input-inbox input:invalid~label {
+    top: -15px;
+}
+.wrapper .form-inbox .input-inbox input:focus~label{
+    top: -15px;
+}
+.wrapper .forget {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.wrapper .forget label input {
+    accent-color: #5a7fec;
+    margin-right: 5px;
+}
+.wrapper .forget a {
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 500;
+    color: #5a7fec;
+}
+.wrapper .forget a:hover {
+    text-decoration: underline;
+}
+.wrapper .form-inbox button {
+    width: 100%;
+    height: 40px;
+    margin: 20px 0;
+    font-size: 18px;
+    background-color: #5a7fec;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .4s ease;
+}
+.wrapper .form-inbox button:hover {
+    background-color: #7b9cfd;
+    transform: scale(1.1);
+}
+.wrapper .login-register {
+    text-align: center;
+}
+.wrapper .login-register label a {
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 500;
+    color: #5a7fec;
+}
+.wrapper .login-register label a:hover {
+    text-decoration: underline;
+    
+}
